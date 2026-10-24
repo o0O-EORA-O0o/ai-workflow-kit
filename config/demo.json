@@ -1,0 +1,788 @@
+{
+  "$comment": "Configuration de la démo. Démo personnalisée : changer entreprise, couleur, emails (avec leurs résultats attendus) et ventes. Données 100 % fictives, sans nom ni marque du client.",
+  "entreprise": {
+    "nom": {
+      "fr": "Solarelle",
+      "en": "Solarelle"
+    },
+    "secteur": {
+      "fr": "installateur de panneaux solaires, 25 salariés",
+      "en": "solar panel installer, 25 employees"
+    },
+    "initiales": "SO"
+  },
+  "couleur": "#b5651d",
+  "langueParDefaut": "fr",
+  "personnalisee": false,
+  "emails": [
+    {
+      "id": "e1",
+      "fr": {
+        "de": "Claire M. (particulier)",
+        "sujet": "Demande de devis pour panneaux solaires",
+        "corps": "Bonjour,\nNous avons une maison de 140 m² près de Lyon, toit orienté sud, environ 45 m² disponibles. Nous aimerions un devis pour une installation de 9 kWc avec batterie si possible. Notre budget tourne autour de 15 000 €. Seriez-vous disponibles pour une visite la semaine prochaine ?\nMerci,\nClaire"
+      },
+      "en": {
+        "de": "Claire M. (homeowner)",
+        "sujet": "Quote request for solar panels",
+        "corps": "Hello,\nWe have a 140 m² house near Lyon with a south-facing roof, about 45 m² available. We would like a quote for a 9 kWp installation, with a battery if possible. Our budget is around €15,000. Could you visit next week?\nThanks,\nClaire"
+      },
+      "resultat": {
+        "categorie": "lead",
+        "priorite": "haute",
+        "champs": {
+          "fr": {
+            "Type": "Particulier",
+            "Besoin": "9 kWc + batterie",
+            "Budget": "15 000 €",
+            "Localisation": "près de Lyon",
+            "Prochaine étape": "visite technique"
+          },
+          "en": {
+            "Type": "Homeowner",
+            "Need": "9 kWp + battery",
+            "Budget": "€15,000",
+            "Location": "near Lyon",
+            "Next step": "site visit"
+          }
+        },
+        "enrichissement": {
+          "fr": "Toit sud de 45 m² : compatible avec 9 kWc (≈ 22 panneaux). Lead chaud : budget et délai donnés.",
+          "en": "45 m² south roof: fits 9 kWp (≈ 22 panels). Hot lead: budget and timing given."
+        },
+        "action": {
+          "fr": "Ajouté à l'onglet Leads, relance J+1",
+          "en": "Added to the Leads tab, follow-up D+1"
+        },
+        "brouillon": {
+          "fr": "Bonjour Claire,\nMerci pour votre demande. Une installation de 9 kWc avec batterie est tout à fait envisageable sur une toiture sud de 45 m². Je vous propose une visite technique gratuite mardi ou jeudi prochain, en matinée ; laquelle vous convient le mieux ?\nBien cordialement,\nL'équipe Solarelle",
+          "en": "Hello Claire,\nThank you for your request. A 9 kWp installation with a battery is entirely feasible on a 45 m² south-facing roof. We can offer a free site visit next Tuesday or Thursday morning; which suits you best?\nKind regards,\nThe Solarelle team"
+        }
+      }
+    },
+    {
+      "id": "e2",
+      "fr": {
+        "de": "Service achats — Logistique du Val (entreprise)",
+        "sujet": "Étude photovoltaïque pour notre entrepôt",
+        "corps": "Bonjour,\nNous exploitons un entrepôt de 2 000 m² à Villefranche et étudions une centrale en toiture pour l'autoconsommation. Pouvez-vous nous transmettre une proposition d'étude de faisabilité et vos références sur des bâtiments logistiques ? Décision prévue au premier trimestre.\nCordialement,\nService achats"
+      },
+      "en": {
+        "de": "Purchasing — Val Logistics (company)",
+        "sujet": "Solar study for our warehouse",
+        "corps": "Hello,\nWe run a 2,000 m² warehouse in Villefranche and are considering a rooftop plant for self-consumption. Could you send us a feasibility study proposal and your references on logistics buildings? Decision expected in Q1.\nRegards,\nPurchasing"
+      },
+      "resultat": {
+        "categorie": "lead",
+        "priorite": "haute",
+        "champs": {
+          "fr": {
+            "Type": "Entreprise",
+            "Besoin": "centrale toiture, autoconsommation",
+            "Surface": "2 000 m²",
+            "Échéance": "décision T1",
+            "Prochaine étape": "proposition d'étude"
+          },
+          "en": {
+            "Type": "Company",
+            "Need": "rooftop plant, self-consumption",
+            "Area": "2,000 m²",
+            "Deadline": "decision in Q1",
+            "Next step": "study proposal"
+          }
+        },
+        "enrichissement": {
+          "fr": "Grand compte potentiel (≈ 250 kWc). À traiter par le chargé d'affaires B2B.",
+          "en": "Potential key account (≈ 250 kWp). For the B2B account manager."
+        },
+        "action": {
+          "fr": "Ajouté à l'onglet Leads, assigné au chargé d'affaires B2B",
+          "en": "Added to the Leads tab, assigned to the B2B account manager"
+        },
+        "brouillon": {
+          "fr": "Bonjour,\nMerci pour votre message. Nous vous adresserons d'ici vendredi une proposition d'étude de faisabilité pour votre entrepôt de 2 000 m², avec deux références de bâtiments logistiques. Pouvez-vous nous indiquer votre consommation annuelle d'électricité ?\nBien cordialement,\nL'équipe Solarelle",
+          "en": "Hello,\nThank you for your message. We will send you a feasibility study proposal for your 2,000 m² warehouse by Friday, with two references from logistics buildings. Could you share your annual electricity consumption?\nKind regards,\nThe Solarelle team"
+        }
+      }
+    },
+    {
+      "id": "e3",
+      "fr": {
+        "de": "Comptabilité — Onduleurs Rhône (fournisseur)",
+        "sujet": "Facture F-2026-0412",
+        "corps": "Bonjour,\nVeuillez trouver ci-joint la facture F-2026-0412 relative à la livraison de 6 onduleurs hybrides, d'un montant de 4 380,00 € HT, soit 5 256,00 € TTC, payable au 30 novembre 2026.\nCordialement,\nService comptabilité"
+      },
+      "en": {
+        "de": "Accounts — Rhône Inverters (supplier)",
+        "sujet": "Invoice F-2026-0412",
+        "corps": "Hello,\nPlease find attached invoice F-2026-0412 for the delivery of 6 hybrid inverters, amounting to €4,380.00 excl. VAT, i.e. €5,256.00 incl. VAT, due on 30 November 2026.\nRegards,\nAccounts department"
+      },
+      "resultat": {
+        "categorie": "facture",
+        "priorite": "normale",
+        "champs": {
+          "fr": {
+            "Fournisseur": "Onduleurs Rhône",
+            "N° facture": "F-2026-0412",
+            "Montant HT": "4 380,00 €",
+            "Montant TTC": "5 256,00 €",
+            "Échéance": "30/11/2026"
+          },
+          "en": {
+            "Supplier": "Rhône Inverters",
+            "Invoice no.": "F-2026-0412",
+            "Amount excl. VAT": "€4,380.00",
+            "Amount incl. VAT": "€5,256.00",
+            "Due date": "30/11/2026"
+          }
+        },
+        "enrichissement": {
+          "fr": "Montant cohérent avec le bon de commande BC-0388 (6 onduleurs). Aucun doublon.",
+          "en": "Amount matches purchase order BC-0388 (6 inverters). No duplicate."
+        },
+        "action": {
+          "fr": "Ajoutée à l'onglet Factures, PDF classé dans Drive › Fournisseurs › 2026-11",
+          "en": "Added to the Invoices tab, PDF filed in Drive › Suppliers › 2026-11"
+        },
+        "brouillon": {
+          "fr": "",
+          "en": ""
+        }
+      }
+    },
+    {
+      "id": "e4",
+      "fr": {
+        "de": "Comptabilité — Transports Alpins (fournisseur)",
+        "sujet": "Facture F-2026-0412 (rappel)",
+        "corps": "Bonjour,\nSauf erreur de notre part, la facture F-2026-0412 du 2 octobre, d'un montant de 4 380,00 € HT, reste impayée. Merci de procéder au règlement.\nCordialement"
+      },
+      "en": {
+        "de": "Accounts — Alpine Transport (supplier)",
+        "sujet": "Invoice F-2026-0412 (reminder)",
+        "corps": "Hello,\nUnless we are mistaken, invoice F-2026-0412 of 2 October, amounting to €4,380.00 excl. VAT, remains unpaid. Please arrange payment.\nRegards"
+      },
+      "resultat": {
+        "categorie": "facture",
+        "priorite": "haute",
+        "champs": {
+          "fr": {
+            "Fournisseur": "Transports Alpins",
+            "N° facture": "F-2026-0412",
+            "Montant HT": "4 380,00 €",
+            "Statut": "relance d'impayé"
+          },
+          "en": {
+            "Supplier": "Alpine Transport",
+            "Invoice no.": "F-2026-0412",
+            "Amount excl. VAT": "€4,380.00",
+            "Status": "payment reminder"
+          }
+        },
+        "enrichissement": {
+          "fr": "Anomalie : même numéro et même montant qu'une facture d'un autre fournisseur, aucun bon de commande. Possible tentative de fraude.",
+          "en": "Anomaly: same number and amount as an invoice from another supplier, no purchase order. Possible fraud attempt."
+        },
+        "action": {
+          "fr": "Mise en quarantaine, alerte envoyée à la comptabilité",
+          "en": "Quarantined, alert sent to accounting"
+        },
+        "brouillon": {
+          "fr": "",
+          "en": ""
+        }
+      }
+    },
+    {
+      "id": "e5",
+      "fr": {
+        "de": "M. Bernard (client)",
+        "sujet": "Production en baisse",
+        "corps": "Bonjour,\nDepuis une semaine, ma production a chuté de moitié et l'onduleur affiche le code E21. L'installation a été posée par vos soins en mars 2025. Que dois-je faire ?\nMerci"
+      },
+      "en": {
+        "de": "Mr Bernard (customer)",
+        "sujet": "Output dropping",
+        "corps": "Hello,\nFor a week my output has halved and the inverter shows error code E21. You installed the system in March 2025. What should I do?\nThanks"
+      },
+      "resultat": {
+        "categorie": "support",
+        "priorite": "normale",
+        "champs": {
+          "fr": {
+            "Client": "M. Bernard",
+            "Problème": "production divisée par deux",
+            "Code erreur": "E21",
+            "Installation": "mars 2025 (sous garantie)"
+          },
+          "en": {
+            "Customer": "Mr Bernard",
+            "Issue": "output halved",
+            "Error code": "E21",
+            "Installation": "March 2025 (under warranty)"
+          }
+        },
+        "enrichissement": {
+          "fr": "E21 = défaut d'isolement côté panneaux (notice onduleur). Intervention sous garantie.",
+          "en": "E21 = panel-side insulation fault (inverter manual). Warranty call-out."
+        },
+        "action": {
+          "fr": "Ticket SAV créé, technicien à planifier",
+          "en": "Service ticket created, technician to be scheduled"
+        },
+        "brouillon": {
+          "fr": "Bonjour Monsieur Bernard,\nMerci pour votre signalement. Le code E21 indique un défaut d'isolement côté panneaux : par précaution, ne touchez pas au câblage. Votre installation est sous garantie ; un technicien vous appellera sous 48 heures pour fixer une intervention.\nBien cordialement,\nL'équipe Solarelle",
+          "en": "Hello Mr Bernard,\nThank you for letting us know. Error E21 indicates a panel-side insulation fault: as a precaution, please do not touch the wiring. Your system is under warranty; a technician will call you within 48 hours to schedule a visit.\nKind regards,\nThe Solarelle team"
+        }
+      }
+    },
+    {
+      "id": "e6",
+      "fr": {
+        "de": "Mme Roux (cliente)",
+        "sujet": "URGENT panneau arraché",
+        "corps": "Bonjour, avec la tempête de cette nuit un panneau s'est en partie détaché du toit et pend au-dessus de l'allée. Pouvez-vous venir rapidement ? C'est dangereux."
+      },
+      "en": {
+        "de": "Mrs Roux (customer)",
+        "sujet": "URGENT panel torn off",
+        "corps": "Hello, after last night's storm a panel has partly come off the roof and is hanging over the driveway. Can you come quickly? It is dangerous."
+      },
+      "resultat": {
+        "categorie": "support",
+        "priorite": "urgente",
+        "champs": {
+          "fr": {
+            "Cliente": "Mme Roux",
+            "Problème": "panneau partiellement arraché",
+            "Cause": "tempête",
+            "Risque": "chute au-dessus de l'allée"
+          },
+          "en": {
+            "Customer": "Mrs Roux",
+            "Issue": "panel partly torn off",
+            "Cause": "storm",
+            "Risk": "falling over the driveway"
+          }
+        },
+        "enrichissement": {
+          "fr": "Risque pour les personnes : intervention d'urgence et déclaration à l'assurance.",
+          "en": "Risk to people: emergency call-out and insurance claim."
+        },
+        "action": {
+          "fr": "Ticket urgent, astreinte prévenue par SMS",
+          "en": "Urgent ticket, on-call team notified by text"
+        },
+        "brouillon": {
+          "fr": "Bonjour Madame Roux,\nMerci de nous avoir prévenus. Par sécurité, éloignez toute personne et tout véhicule de l'allée. Notre équipe d'astreinte vous appelle dans l'heure pour sécuriser le panneau ; gardez des photos pour votre assurance.\nBien cordialement,\nL'équipe Solarelle",
+          "en": "Hello Mrs Roux,\nThank you for warning us. For safety, keep people and vehicles away from the driveway. Our on-call team will call you within the hour to secure the panel; please keep photos for your insurer.\nKind regards,\nThe Solarelle team"
+        }
+      }
+    },
+    {
+      "id": "e7",
+      "fr": {
+        "de": "Agence Visibilité Max",
+        "sujet": "Doublez vos ventes grâce au SEO !!!",
+        "corps": "Bonjour, nous avons analysé votre site : il est mal référencé. Pour 99 € par mois, nous vous garantissons la première page de Google. Répondez OUI pour en profiter."
+      },
+      "en": {
+        "de": "Max Visibility Agency",
+        "sujet": "Double your sales with SEO!!!",
+        "corps": "Hello, we analysed your website: it ranks poorly. For €99 a month we guarantee the first page of Google. Reply YES to take advantage."
+      },
+      "resultat": {
+        "categorie": "spam",
+        "priorite": "basse",
+        "champs": {
+          "fr": {
+            "Nature": "prospection commerciale non sollicitée"
+          },
+          "en": {
+            "Nature": "unsolicited sales pitch"
+          }
+        },
+        "enrichissement": {
+          "fr": "Promesse de résultat garanti : message classé comme indésirable.",
+          "en": "Guaranteed-result promise: classified as junk."
+        },
+        "action": {
+          "fr": "Archivé sans réponse",
+          "en": "Archived without reply"
+        },
+        "brouillon": {
+          "fr": "",
+          "en": ""
+        }
+      }
+    },
+    {
+      "id": "e8",
+      "fr": {
+        "de": "Julien P.",
+        "sujet": "Candidature électricien",
+        "corps": "Bonjour,\nÉlectricien qualifié avec trois ans d'expérience en photovoltaïque, je souhaite rejoindre votre équipe de pose. Je suis disponible dès janvier. Mon CV est en pièce jointe.\nCordialement,\nJulien"
+      },
+      "en": {
+        "de": "Julien P.",
+        "sujet": "Application: electrician",
+        "corps": "Hello,\nI am a qualified electrician with three years' experience in solar, and I would like to join your installation team. I am available from January. My CV is attached.\nRegards,\nJulien"
+      },
+      "resultat": {
+        "categorie": "autre",
+        "priorite": "normale",
+        "champs": {
+          "fr": {
+            "Nature": "candidature spontanée",
+            "Poste": "électricien poseur",
+            "Expérience": "3 ans en photovoltaïque",
+            "Disponibilité": "janvier"
+          },
+          "en": {
+            "Nature": "unsolicited application",
+            "Role": "installation electrician",
+            "Experience": "3 years in solar",
+            "Availability": "January"
+          }
+        },
+        "enrichissement": {
+          "fr": "Profil correspondant au recrutement en cours (équipe de pose).",
+          "en": "Profile matches the current hiring (installation team)."
+        },
+        "action": {
+          "fr": "Transmis au responsable RH",
+          "en": "Forwarded to the HR manager"
+        },
+        "brouillon": {
+          "fr": "Bonjour Julien,\nMerci pour votre candidature, que nous transmettons à notre responsable des ressources humaines. Vous recevrez une réponse sous dix jours.\nBien cordialement,\nL'équipe Solarelle",
+          "en": "Hello Julien,\nThank you for your application, which we have passed on to our HR manager. You will hear from us within ten days.\nKind regards,\nThe Solarelle team"
+        }
+      }
+    }
+  ],
+  "ventes": [
+    {
+      "semaine": -1,
+      "jour": 1,
+      "offre": "Installation 3 kWc",
+      "offreEn": "Installation 3 kWp",
+      "canal": "Site web",
+      "region": "Savoie",
+      "montant": 7780
+    },
+    {
+      "semaine": -1,
+      "jour": 4,
+      "offre": "Installation 3 kWc",
+      "offreEn": "Installation 3 kWp",
+      "canal": "Salon",
+      "region": "Ain",
+      "montant": 7690
+    },
+    {
+      "semaine": -1,
+      "jour": 3,
+      "offre": "Installation 6 kWc",
+      "offreEn": "Installation 6 kWp",
+      "canal": "Salon",
+      "region": "Ain",
+      "montant": 13300
+    },
+    {
+      "semaine": -1,
+      "jour": 1,
+      "offre": "Borne de recharge",
+      "offreEn": "EV charger",
+      "canal": "Recommandation",
+      "region": "Ain",
+      "montant": 1450
+    },
+    {
+      "semaine": -1,
+      "jour": 1,
+      "offre": "Borne de recharge",
+      "offreEn": "EV charger",
+      "canal": "Partenaire",
+      "region": "Savoie",
+      "montant": 1430
+    },
+    {
+      "semaine": -1,
+      "jour": 4,
+      "offre": "Contrat de maintenance",
+      "offreEn": "Maintenance contract",
+      "canal": "Site web",
+      "region": "Savoie",
+      "montant": 290
+    },
+    {
+      "semaine": -1,
+      "jour": 2,
+      "offre": "Installation 6 kWc",
+      "offreEn": "Installation 6 kWp",
+      "canal": "Recommandation",
+      "region": "Isère",
+      "montant": 12740
+    },
+    {
+      "semaine": -1,
+      "jour": 3,
+      "offre": "Installation 6 kWc",
+      "offreEn": "Installation 6 kWp",
+      "canal": "Partenaire",
+      "region": "Ain",
+      "montant": 12830
+    },
+    {
+      "semaine": -1,
+      "jour": 4,
+      "offre": "Installation 6 kWc",
+      "offreEn": "Installation 6 kWp",
+      "canal": "Site web",
+      "region": "Isère",
+      "montant": 13030
+    },
+    {
+      "semaine": -1,
+      "jour": 0,
+      "offre": "Installation 6 kWc",
+      "offreEn": "Installation 6 kWp",
+      "canal": "Salon",
+      "region": "Savoie",
+      "montant": 13290
+    },
+    {
+      "semaine": -1,
+      "jour": 4,
+      "offre": "Installation 3 kWc",
+      "offreEn": "Installation 3 kWp",
+      "canal": "Site web",
+      "region": "Rhône",
+      "montant": 8120
+    },
+    {
+      "semaine": -1,
+      "jour": 3,
+      "offre": "Contrat de maintenance",
+      "offreEn": "Maintenance contract",
+      "canal": "Site web",
+      "region": "Isère",
+      "montant": 280
+    },
+    {
+      "semaine": -1,
+      "jour": 2,
+      "offre": "Installation 3 kWc",
+      "offreEn": "Installation 3 kWp",
+      "canal": "Partenaire",
+      "region": "Rhône",
+      "montant": 7720
+    },
+    {
+      "semaine": -1,
+      "jour": 2,
+      "offre": "Installation 3 kWc",
+      "offreEn": "Installation 3 kWp",
+      "canal": "Salon",
+      "region": "Ain",
+      "montant": 8170
+    },
+    {
+      "semaine": -1,
+      "jour": 3,
+      "offre": "Installation 9 kWc",
+      "offreEn": "Installation 9 kWp",
+      "canal": "Salon",
+      "region": "Rhône",
+      "montant": 16350
+    },
+    {
+      "semaine": -1,
+      "jour": 4,
+      "offre": "Installation 6 kWc",
+      "offreEn": "Installation 6 kWp",
+      "canal": "Site web",
+      "region": "Ain",
+      "montant": 13050
+    },
+    {
+      "semaine": -1,
+      "jour": 0,
+      "offre": "Contrat de maintenance",
+      "offreEn": "Maintenance contract",
+      "canal": "Recommandation",
+      "region": "Rhône",
+      "montant": 270
+    },
+    {
+      "semaine": -1,
+      "jour": 1,
+      "offre": "Contrat de maintenance",
+      "offreEn": "Maintenance contract",
+      "canal": "Recommandation",
+      "region": "Savoie",
+      "montant": 280
+    },
+    {
+      "semaine": -1,
+      "jour": 3,
+      "offre": "Installation 9 kWc",
+      "offreEn": "Installation 9 kWp",
+      "canal": "Site web",
+      "region": "Ain",
+      "montant": 17040
+    },
+    {
+      "semaine": -1,
+      "jour": 3,
+      "offre": "Contrat de maintenance",
+      "offreEn": "Maintenance contract",
+      "canal": "Recommandation",
+      "region": "Isère",
+      "montant": 280
+    },
+    {
+      "semaine": -1,
+      "jour": 3,
+      "offre": "Installation 6 kWc",
+      "offreEn": "Installation 6 kWp",
+      "canal": "Recommandation",
+      "region": "Savoie",
+      "montant": 13850
+    },
+    {
+      "semaine": 0,
+      "jour": 1,
+      "offre": "Installation 9 kWc",
+      "offreEn": "Installation 9 kWp",
+      "canal": "Site web",
+      "region": "Ain",
+      "montant": 16450
+    },
+    {
+      "semaine": 0,
+      "jour": 3,
+      "offre": "Contrat de maintenance",
+      "offreEn": "Maintenance contract",
+      "canal": "Recommandation",
+      "region": "Ain",
+      "montant": 300
+    },
+    {
+      "semaine": 0,
+      "jour": 2,
+      "offre": "Installation 6 kWc",
+      "offreEn": "Installation 6 kWp",
+      "canal": "Partenaire",
+      "region": "Ain",
+      "montant": 12930
+    },
+    {
+      "semaine": 0,
+      "jour": 2,
+      "offre": "Installation 6 kWc",
+      "offreEn": "Installation 6 kWp",
+      "canal": "Site web",
+      "region": "Savoie",
+      "montant": 13800
+    },
+    {
+      "semaine": 0,
+      "jour": 4,
+      "offre": "Installation 9 kWc",
+      "offreEn": "Installation 9 kWp",
+      "canal": "Site web",
+      "region": "Ain",
+      "montant": 16690
+    },
+    {
+      "semaine": 0,
+      "jour": 1,
+      "offre": "Borne de recharge",
+      "offreEn": "EV charger",
+      "canal": "Partenaire",
+      "region": "Ain",
+      "montant": 1440
+    },
+    {
+      "semaine": 0,
+      "jour": 3,
+      "offre": "Installation 3 kWc",
+      "offreEn": "Installation 3 kWp",
+      "canal": "Partenaire",
+      "region": "Ain",
+      "montant": 7950
+    },
+    {
+      "semaine": 0,
+      "jour": 3,
+      "offre": "Installation 9 kWc",
+      "offreEn": "Installation 9 kWp",
+      "canal": "Partenaire",
+      "region": "Ain",
+      "montant": 18140
+    },
+    {
+      "semaine": 0,
+      "jour": 4,
+      "offre": "Batterie 10 kWh",
+      "offreEn": "10 kWh battery",
+      "canal": "Site web",
+      "region": "Savoie",
+      "montant": 6110
+    },
+    {
+      "semaine": 0,
+      "jour": 2,
+      "offre": "Installation 6 kWc",
+      "offreEn": "Installation 6 kWp",
+      "canal": "Recommandation",
+      "region": "Isère",
+      "montant": 13260
+    },
+    {
+      "semaine": 0,
+      "jour": 3,
+      "offre": "Contrat de maintenance",
+      "offreEn": "Maintenance contract",
+      "canal": "Salon",
+      "region": "Savoie",
+      "montant": 300
+    },
+    {
+      "semaine": 0,
+      "jour": 2,
+      "offre": "Contrat de maintenance",
+      "offreEn": "Maintenance contract",
+      "canal": "Partenaire",
+      "region": "Savoie",
+      "montant": 310
+    },
+    {
+      "semaine": 0,
+      "jour": 0,
+      "offre": "Installation 3 kWc",
+      "offreEn": "Installation 3 kWp",
+      "canal": "Recommandation",
+      "region": "Ain",
+      "montant": 7410
+    },
+    {
+      "semaine": 0,
+      "jour": 1,
+      "offre": "Borne de recharge",
+      "offreEn": "EV charger",
+      "canal": "Recommandation",
+      "region": "Isère",
+      "montant": 1430
+    },
+    {
+      "semaine": 0,
+      "jour": 0,
+      "offre": "Contrat de maintenance",
+      "offreEn": "Maintenance contract",
+      "canal": "Site web",
+      "region": "Rhône",
+      "montant": 270
+    },
+    {
+      "semaine": 0,
+      "jour": 1,
+      "offre": "Installation 9 kWc",
+      "offreEn": "Installation 9 kWp",
+      "canal": "Partenaire",
+      "region": "Ain",
+      "montant": 17500
+    },
+    {
+      "semaine": 0,
+      "jour": 2,
+      "offre": "Contrat de maintenance",
+      "offreEn": "Maintenance contract",
+      "canal": "Salon",
+      "region": "Ain",
+      "montant": 270
+    },
+    {
+      "semaine": 0,
+      "jour": 4,
+      "offre": "Borne de recharge",
+      "offreEn": "EV charger",
+      "canal": "Site web",
+      "region": "Isère",
+      "montant": 1470
+    },
+    {
+      "semaine": 0,
+      "jour": 4,
+      "offre": "Installation 6 kWc",
+      "offreEn": "Installation 6 kWp",
+      "canal": "Site web",
+      "region": "Savoie",
+      "montant": 12190
+    },
+    {
+      "semaine": 0,
+      "jour": 3,
+      "offre": "Installation 3 kWc",
+      "offreEn": "Installation 3 kWp",
+      "canal": "Partenaire",
+      "region": "Savoie",
+      "montant": 8500
+    },
+    {
+      "semaine": 0,
+      "jour": 0,
+      "offre": "Batterie 10 kWh",
+      "offreEn": "10 kWh battery",
+      "canal": "Site web",
+      "region": "Ain",
+      "montant": 6390
+    },
+    {
+      "semaine": 0,
+      "jour": 3,
+      "offre": "Installation 6 kWc",
+      "offreEn": "Installation 6 kWp",
+      "canal": "Salon",
+      "region": "Savoie",
+      "montant": 13900
+    },
+    {
+      "semaine": 0,
+      "jour": 1,
+      "offre": "Contrat de maintenance",
+      "offreEn": "Maintenance contract",
+      "canal": "Site web",
+      "region": "Rhône",
+      "montant": 280
+    },
+    {
+      "semaine": 0,
+      "jour": 0,
+      "offre": "Borne de recharge",
+      "offreEn": "EV charger",
+      "canal": "Salon",
+      "region": "Rhône",
+      "montant": 1410
+    },
+    {
+      "semaine": 0,
+      "jour": 1,
+      "offre": "Contrat de maintenance",
+      "offreEn": "Maintenance contract",
+      "canal": "Site web",
+      "region": "Savoie",
+      "montant": 280
+    },
+    {
+      "semaine": 0,
+      "jour": 2,
+      "offre": "Installation 9 kWc",
+      "offreEn": "Installation 9 kWp",
+      "canal": "Site web",
+      "region": "Ain",
+      "montant": 16960
+    }
+  ]
+}

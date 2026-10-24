@@ -1,0 +1,9 @@
+node_modules/
+dist/
+src/generated/
+.wrangler/
+test-results/
+playwright-report/
+.dev.vars
+.n8n-test/
+public/n8n/

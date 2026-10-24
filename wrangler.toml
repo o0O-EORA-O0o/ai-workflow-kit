@@ -1,0 +1,18 @@
+# Cloudflare Pages : https://ai-workflow-kit.pages.dev (nom du projet à créer à l'identique).
+# Mode IA : la page relaie au workflow n8n « Kit 1 — Démo en direct » du serveur Hetzner.
+# Secrets à définir dans le tableau de bord (Settings → Variables and Secrets) :
+#   N8N_WEBHOOK_URL    https://<hôte n8n>/webhook/kit1-demo
+#   N8N_WEBHOOK_TOKEN  valeur de l'identifiant « Kit 1 — jeton du webhook » (Header Auth, en-tête X-Demo-Token)
+#   DEMO_ACCESS_CODE   code remis aux prospects
+name = "ai-workflow-kit"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-01"
+
+[vars]
+DEMO_DAILY_LIMIT = "40"
+DEMO_GLOBAL_DAILY_LIMIT = "400"
+
+# Limite partagée entre instances (facultatif) : créer un espace KV puis décommenter.
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "<id de l'espace KV>"

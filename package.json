@@ -1,0 +1,34 @@
+{
+  "name": "ai-workflow-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kit de démo 1 : workflow n8n + IA qui lit, classe, enrichit et range des e-mails fictifs avec brouillon de réponse ; variante rapport hebdomadaire.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "n8n": "tsx scripts/build-n8n.ts",
+    "config:check": "tsx scripts/check-config.ts",
+    "predev": "npm run n8n",
+    "dev": "vite",
+    "prebuild": "npm run config:check && npm run n8n",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:n8n": "bash scripts/test-in-n8n.sh",
+    "check:generated": "tsx scripts/build-n8n.ts --check",
+    "functions:build": "wrangler pages functions build --outdir .wrangler/functions-check"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "^22.20.5",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5",
+    "wrangler": "^4.152.0"
+  }
+}

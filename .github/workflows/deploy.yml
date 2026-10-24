@@ -1,0 +1,47 @@
+# Publication de la démo publique sur Cloudflare Pages à chaque push sur main.
+# Inactif tant que les secrets CLOUDFLARE_API_TOKEN et CLOUDFLARE_ACCOUNT_ID ne sont pas définis.
+name: Déploiement
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploiement
+  cancel-in-progress: true
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      PROJET: ai-workflow-kit
+    steps:
+      - name: Secrets présents ?
+        id: secrets
+        run: |
+          if [[ -n "$CLOUDFLARE_API_TOKEN" && -n "$CLOUDFLARE_ACCOUNT_ID" ]]; then echo "ok=true" >> "$GITHUB_OUTPUT";
+          else echo "::notice::Secrets Cloudflare absents : déploiement ignoré."; fi
+      - uses: actions/checkout@v4
+        if: steps.secrets.outputs.ok == 'true'
+      - uses: actions/setup-node@v4
+        if: steps.secrets.outputs.ok == 'true'
+        with:
+          node-version: 22
+          cache: npm
+      - name: Construction
+        if: steps.secrets.outputs.ok == 'true'
+        run: |
+          npm ci
+          npm run build
+      - name: Publication
+        if: steps.secrets.outputs.ok == 'true'
+        run: |
+          npx wrangler pages project create "$PROJET" --production-branch=main 2>/dev/null || true
+          npx wrangler pages deploy dist --project-name="$PROJET" --branch=main --commit-dirty=true
